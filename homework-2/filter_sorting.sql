@@ -9,7 +9,7 @@ FROM orders
 ORDER BY ship_city, ship_country
 
 -- 3. сколько дней в среднем уходит на доставку товара в Германию (таблица orders, колонки order_date, shipped_date, ship_country)
-SELECT DISTINCT AVG (shipped_date - order_date) as avg_delivery
+SELECT AVG (shipped_date - order_date) as avg_delivery
 FROM orders
 WHERE ship_country = 'Germany'
 
