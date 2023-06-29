@@ -38,20 +38,17 @@ def main():
                                 (emp["employee_id"], emp["first_name"], emp["last_name"], emp["title"], emp["birth_date"], emp["notes"]))
 
             # Запись данных в таблицу customers
-            with conn.cursor() as cur:
                 for customer in customers:
                     cur.execute("INSERT INTO customers VALUES (%s, %s, %s)",
                                 (customer["customer_id"], customer["company_name"], customer["contact_name"]))
 
             # Запись данных в таблицу orders
-            with conn.cursor() as cur:
                 for order in orders:
                     cur.execute("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)",
                                 (order["order_id"], order["customer_id"], order["employee_id"], order["order_date"], order["ship_city"]))
 
     finally:
         conn.close()
-
 
 
 if __name__ == '__main__':
