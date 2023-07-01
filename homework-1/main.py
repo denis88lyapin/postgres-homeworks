@@ -7,6 +7,7 @@ employees_data = os.path.join('north_data', 'employees_data.csv')
 customers_data = os.path.join('north_data', 'customers_data.csv')
 orders_data = os.path.join('north_data', 'orders_data.csv')
 
+
 def reader_csv_file(path):
     """
     Функция для чтения данных из csv - файлов
@@ -37,12 +38,12 @@ def main():
                     cur.execute("INSERT INTO employees VALUES (%s, %s, %s, %s, %s, %s)",
                                 (emp["employee_id"], emp["first_name"], emp["last_name"], emp["title"], emp["birth_date"], emp["notes"]))
 
-            # Запись данных в таблицу customers
+                # Запись данных в таблицу customers
                 for customer in customers:
                     cur.execute("INSERT INTO customers VALUES (%s, %s, %s)",
                                 (customer["customer_id"], customer["company_name"], customer["contact_name"]))
 
-            # Запись данных в таблицу orders
+                # Запись данных в таблицу orders
                 for order in orders:
                     cur.execute("INSERT INTO orders VALUES (%s, %s, %s, %s, %s)",
                                 (order["order_id"], order["customer_id"], order["employee_id"], order["order_date"], order["ship_city"]))
@@ -53,6 +54,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
